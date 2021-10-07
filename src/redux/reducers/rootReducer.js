@@ -4,6 +4,7 @@ function rootReducer(state = [], action) {
         action.payload
       ]
     }
+    
       return state;
     }
 

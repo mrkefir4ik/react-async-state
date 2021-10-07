@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchData } from '../redux/actions/fetchData';
 
 const  Data = (props) => {
     let input = React.createRef();
@@ -17,7 +16,7 @@ const  Data = (props) => {
     return (
         <div className = 'data'>
             <h1>Movie searcher (redux-thunk)</h1>
-              <button onClick={() => {if (input.current.value) (props.onFetchData(input))}}>Search</button>
+              <button onClick={() => (props.onFetchData())}>Search</button>
               <input  onKeyPress={handleKeypress} type='text'ref={input} onChange={onChangeHandler} placeholder='Enter the title here'/>
         </div>
     )
@@ -28,6 +27,6 @@ export default connect(
       Store: state
     }),
     dispatch => ({
-    onFetchData: (input) => dispatch(fetchData(input.current.value))
+    onFetchData: (input) => dispatch({ type: 'ASYNC_FETCH_DATA' })
     })
   )(Data);
