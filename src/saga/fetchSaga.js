@@ -1,16 +1,17 @@
 import {put, takeEvery, call} from 'redux-saga/effects'
+import store from '../redux/store'
 
-
-const fetchDataFromApi = () => fetch(`https://api.themoviedb.org/3/search/movie?api_key=18b43673946d2410bbb54325b0fcffd0&query=lord`)
+const fetchDataFromApi = (query) => fetch(`https://api.themoviedb.org/3/search/movie?api_key=18b43673946d2410bbb54325b0fcffd0&query=${query}`)
 function* fetchDataWorker() {
     
-    const data = yield call(fetchDataFromApi)
-    const json = yield call(() => new Promise(res => res(data.json)))
+    console.log(store.getState())
+    const data = yield call(()=>fetchDataFromApi(store.getState().query))
+    const json = yield call(() => new Promise(res => res(data.json())))
 
     yield put({ type: 'FETCH_DATA', payload: json })
 
 }
 
  export function* fetchDataWatcher() {
-    yield takeEvery({ type: 'ASYNC_FETCH_DATA' }, fetchDataWorker)
+    yield takeEvery('ASYNC_FETCH_DATA', fetchDataWorker)
 }

@@ -15,6 +15,7 @@ body{
     width:60%;
     margin-left: auto;
     margin-right: auto;
+    padding: 1rem;
 }
 .data{
     background-color: orange;
@@ -48,4 +49,7 @@ button{
   border-radius:5px;
   width:8rem;
   height: min-content;
+}
+.poster{
+    margin-right: 1rem;
 }

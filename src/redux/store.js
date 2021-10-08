@@ -15,4 +15,4 @@ sagaMiddleWare.run(fetchDataWatcher);
     console.log(store.getState());
   })
 
-  export default store;
+export default store;

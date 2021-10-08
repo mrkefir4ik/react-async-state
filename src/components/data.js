@@ -16,7 +16,7 @@ const  Data = (props) => {
     return (
         <div className = 'data'>
             <h1>Movie searcher (redux-thunk)</h1>
-              <button onClick={() => (props.onFetchData())}>Search</button>
+              <button onClick={() => (props.onFetchData(input.current.value))}>Search</button>
               <input  onKeyPress={handleKeypress} type='text'ref={input} onChange={onChangeHandler} placeholder='Enter the title here'/>
         </div>
     )
@@ -27,6 +27,6 @@ export default connect(
       Store: state
     }),
     dispatch => ({
-    onFetchData: (input) => dispatch({ type: 'ASYNC_FETCH_DATA' })
+    onFetchData: (input) => dispatch({ type: 'ASYNC_FETCH_DATA', payload: input })
     })
   )(Data);

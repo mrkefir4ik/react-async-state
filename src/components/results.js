@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 const  Results = (props) => {
-    const resultsList = props.Store[0]?.results;
+    const resultsList = props.Store.results.results;
     console.log(resultsList)
     const renderList = resultsList?.map((item)=>
         <div key = {item.id.toString()} className = 'result'>
