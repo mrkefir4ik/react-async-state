@@ -1,5 +1,5 @@
 
-function rootReducer(state = [], action) {
+function rootReducer(state = {}, action) {
     if (action.type === 'FETCH_DATA') {
       return {results: action.payload, ...state}
     }
