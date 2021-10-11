@@ -1,12 +1,16 @@
 import './App.css';
-import Data from './components/data';
-import Results from './components/results'
+import { QueryClient, QueryClientProvider } from "react-query";
+import Content from './content'
 
-function App(props) {
+
+const queryClient = new QueryClient();
+function App() {
   return (
     <div className="App">
-      <Data />
-      <Results />
+      <QueryClientProvider client={queryClient}>
+        <Content />
+      </QueryClientProvider>
+      
     </div>
   );
 }

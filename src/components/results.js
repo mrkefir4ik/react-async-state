@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
 const  Results = (props) => {
-    const resultsList = props.Store.results?.results;
+    const resultsList = props.results;
     console.log(resultsList)
-    const renderList = resultsList?.map((item)=>
+    const renderList = resultsList.results?.map((item)=>
         <div key = {item.id.toString()} className = 'result'>
             <h3>{item.title}</h3>
             <div className='content'>
@@ -26,9 +26,11 @@ const  Results = (props) => {
     )
 }
 
-export default connect(
-    state => ({
-      Store: state
-    }),
-    dispatch => ({})
-  )(Results);
+export default Results;
+
+// export default connect(
+//     state => ({
+//       Store: state
+//     }),
+//     dispatch => ({})
+//   )(Results);

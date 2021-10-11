@@ -1,32 +1,43 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { useState } from 'react';
+// import { connect } from 'react-redux'
 
 const  Data = (props) => {
+
+    const [searchValue, setSearchValue] = useState()
     let input = React.createRef();
-    const onChangeHandler = () =>{
-        console.log(input.current.value);
+
+    const onChangeHandler =() =>{
+      console.log(searchValue);
+      setSearchValue(input.current.value);
+    }
+
+    const onClickHandler =()=>{
+      props.onClickFetch(searchValue)
     }
     const handleKeypress = e => {
         //it triggers by pressing the enter key
       if (e.charCode === 13) {
-        props.onFetchData(input);
+        props.onClickFetch(input);
       }
     };
 
     return (
         <div className = 'data'>
-            <h1>Movie searcher (redux-thunk)</h1>
-              <button onClick={() => (props.onFetchData(input.current.value))}>Search</button>
+            <h1>Movie searcher (react-query)</h1>
+              <button onClick={onClickHandler}>Search</button>
               <input  onKeyPress={handleKeypress} type='text'ref={input} onChange={onChangeHandler} placeholder='Enter the title here'/>
         </div>
     )
 }
 
-export default connect(
-    state => ({
-      Store: state
-    }),
-    dispatch => ({
-    onFetchData: (input) => dispatch({ type: 'ASYNC_FETCH_DATA', payload: input })
-    })
-  )(Data);
+export default Data;
+
+// export default connect(
+//     state => ({
+//       Store: state
+//     }),
+//     dispatch => ({
+//     onFetchData: (input) => dispatch({ type: 'ASYNC_FETCH_DATA', payload: input })
+//     })
+//   )(Data);
