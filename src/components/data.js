@@ -8,17 +8,17 @@ const  Data = (props) => {
     let input = React.createRef();
 
     const onChangeHandler =() =>{
-      console.log(searchValue);
       setSearchValue(input.current.value);
+      console.log(searchValue);
     }
 
     const onClickHandler =()=>{
-      props.onClickFetch(searchValue)
+      props.onInputChange(searchValue)
     }
     const handleKeypress = e => {
         //it triggers by pressing the enter key
       if (e.charCode === 13) {
-        props.onClickFetch(input);
+        props.onInputChange(searchValue);
       }
     };
 
