@@ -15,7 +15,7 @@ const  Data = (props) => {
 
     return (
         <div className = 'data'>
-            <h1>Movie searcher (redux-thunk)</h1>
+            <h1>Movie searcher (redux-saga)</h1>
               <button onClick={() => (props.onFetchData())}>Search</button>
               <input  onKeyPress={handleKeypress} type='text'ref={input} onChange={onChangeHandler} placeholder='Enter the title here'/>
         </div>
