@@ -27,6 +27,6 @@ export default connect(
       Store: state
     }),
     dispatch => ({
-    onFetchData: (input) => dispatch({ type: 'ASYNC_FETCH_DATA' })
+    onFetchData: (input) => dispatch({ type: 'ASYNC_FETCH_DATA', payload: input.current.value })
     })
   )(Data);
