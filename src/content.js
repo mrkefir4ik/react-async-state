@@ -22,7 +22,7 @@ function Content() {
   }
   
   const onClickFetch = (text) => { 
-    console.log('text is '+text);
+    console.log('text is '+ text);
     refetch() }
   return (
     <div className="App">
