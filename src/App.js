@@ -1,6 +1,6 @@
 import './App.css';
 import { QueryClient, QueryClientProvider } from "react-query";
-import Content from './content'
+import Content from './components/content'
 
 
 const queryClient = new QueryClient();
@@ -10,7 +10,6 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Content />
       </QueryClientProvider>
-      
     </div>
   );
 }
